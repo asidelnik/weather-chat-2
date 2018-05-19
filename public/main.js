@@ -1,18 +1,20 @@
 // Importing classes modules Events, Data, & Render
-// import Render from './render.js';
-import Data from './data.js';
-import Events from './events.js';
 import WeatherAPI from './api.js';
+import Data from './data.js';
+import Render from './render.js';
+import Events from './events.js';
 
 
 
-let weatherAPI = new WeatherAPI()
-let data = new Data(weatherAPI);;
-let events = new Events(data);
+
+let weatherAPI = new WeatherAPI();
+let data = new Data();
+let render = new Render();
+let events = new Events();
 
 
 
-events.fetchCity();
+events.fetchCity(weatherAPI);
 
 
 
