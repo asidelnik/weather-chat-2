@@ -1,11 +1,25 @@
 class Data {
-   constructor(weatherAPI) {
-      this.weatherAPI = weatherAPI;
+   constructor() {
+      this.dataArr = [];
    }
 
-   showWeather2(city) {
-      this.showWeather(city);
+   addCity(city, cityTemp, tempDescription) {
+      let cityData = new City(city, cityTemp, tempDescription);
+      this.dataArr.push(cityData);
+      // $('#temp').html("Temperature in " + city + " is " + temp + "°C");
    }
 }
 
 export default Data;
+
+
+
+
+
+
+
+
+// let cityTemp = {
+   //    city: city,
+   //    temp: temp
+   // };

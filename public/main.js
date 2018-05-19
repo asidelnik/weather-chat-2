@@ -3,14 +3,15 @@ import WeatherAPI from './api.js';
 import Data from './data.js';
 import Render from './render.js';
 import Events from './events.js';
-
+import City from './city.js';
 
 
 
 let weatherAPI = new WeatherAPI();
-let data = new Data();
+let city = new City();
+let dataRep = new Data();
 let render = new Render();
-let events = new Events();
+let events = new Events(dataRep);
 
 
 
