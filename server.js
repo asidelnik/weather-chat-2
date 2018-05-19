@@ -10,14 +10,14 @@ app.use(express.static('files'));
 app.use(express.static('node_modules'));
 
 
-// app.get('/', function (request, response) {
-//    response.send("Hey, hello from the server!");
-// });
-
 app.get('/', function (request, response) {
-   //response.send("Hey, hello from the server!");
-   response.sendFile(path.join(public + '/me.html'));
+   response.send("Hey, hello from the server!");
 });
+
+// app.get('/', function (request, response) {
+//    //response.send("Hey, hello from the server!");
+//    response.sendFile(path.join(public + '/me.html'));
+// });
 
 
 
