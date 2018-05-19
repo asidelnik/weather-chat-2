@@ -27,6 +27,25 @@ class Events {
 
 export default Events;
 
+/*
+   Maybe use something like this, in the main file. Brought it from the gym hackathon project
+
+         var getTrainees = gymRepo.getTrainees();
+         getTrainees.then(function(data) {
+         traineesRenderer.renderTrainees(data)
+         });
+
+   
+
+   Or this from David Chuwer spacebook
+         var getPosts = postsRepository.getPosts();
+         getPosts.then( () => {
+         postsRenderer.renderPosts(postsRepository.posts)});
+
+    
+*/
+
+
 /* 
    1. Events module listen to city input value
    2. Sets a variable to its value
