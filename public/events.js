@@ -1,30 +1,23 @@
-import Data from './data.js';
+// import Data from './data.js';
 //let dataRep = new Data(cityReport);
 
 class Events {
-   constructor() {
-      this.dataRep = new Data();
+   constructor(dataRep) {
+      this.dataRep = dataRep;
    }
 
-   log() {
-      console.log(this.dataRep);
-      // console.log(this.dataRep);
-   }
    // Evnent listener - gets city temp on search
    fetchCity(weatherAPI) {
+      console.log(this.dataRep);
       $('#getTemp').on('click', function () {
+         console.log(this.dataRep);
          let cityName = $('#city').val();
          // Executes api's getTemp method
          weatherAPI.getTemp(cityName)
             .then(function (data) { // When promise is returned, then these commands are preformed
                let cityTemp = data.query.results.channel.item.condition.temp;
                let tempDescription = data.query.results.channel.item.condition.text;
-               console.log(cityTemp, tempDescription);
-               // this.cityReport(cityName, cityTemp, tempDescription);
-               // console.log("Temperature in " + city + " is " + temp + "°C");
-               console.log("this log: " + this.dataRep);
-               dataRep.addCity(cityName, cityTemp, tempDescription);
-               // console.log(this.dataRep.dataArr);
+               this.dataRep.addCity(cityName, cityTemp, tempDescription);
                $('#city').empty();
             })
             .catch(function (error) { //If the ajax promise returns an error, the catch will notify it
@@ -68,4 +61,14 @@ export default Events;
 
    
 
+*/
+
+
+/* 
+log() {
+   // let x = this.dataRep;
+   // console.log("this.dataRep at log method" + x);
+   // console.log(x);
+   console.log(this.dataRep);
+}
 */

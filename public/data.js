@@ -1,8 +1,9 @@
 import City from './city.js';
 
 class Data {
-   constructor() {
+   constructor(cityReport) {
       this.tempReports = [1,2];
+      // this.cityReport = cityReport;
    }
 
    addCity(city, cityTemp, tempDescription) {
