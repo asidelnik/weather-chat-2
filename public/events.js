@@ -1,19 +1,29 @@
+import Data from './data.js';
+//let dataRep = new Data(cityReport);
+
 class Events {
-   constructor(dataRep) {
-      this.dataRep = dataRep;
+   constructor() {
+      this.dataRep = new Data();
    }
 
+   log() {
+      console.log(this.dataRep);
+      // console.log(this.dataRep);
+   }
    // Evnent listener - gets city temp on search
    fetchCity(weatherAPI) {
       $('#getTemp').on('click', function () {
-         let city = $('#city').val();
+         let cityName = $('#city').val();
          // Executes api's getTemp method
-         weatherAPI.getTemp(city)
+         weatherAPI.getTemp(cityName)
             .then(function (data) { // When promise is returned, then these commands are preformed
                let cityTemp = data.query.results.channel.item.condition.temp;
                let tempDescription = data.query.results.channel.item.condition.text;
+               console.log(cityTemp, tempDescription);
+               // this.cityReport(cityName, cityTemp, tempDescription);
                // console.log("Temperature in " + city + " is " + temp + "°C");
-               this.dataRep.addCity(city, cityTemp, tempDescription);
+               console.log("this log: " + this.dataRep);
+               dataRep.addCity(cityName, cityTemp, tempDescription);
                // console.log(this.dataRep.dataArr);
                $('#city').empty();
             })
