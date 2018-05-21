@@ -28,10 +28,10 @@ class Events {
             })
       })
    }
-
-
-
    
+
+
+
    showComments() {
       $('.toggle-comments').on('click', function () {
          $('.comments-container').toggleClass('show');

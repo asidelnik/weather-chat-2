@@ -15,7 +15,7 @@ class Data {
 
 
 
-   
+
    saveToLocalStorage() {
       localStorage.setItem('weather-chat', JSON.stringify(this.tempReports));
    }
@@ -28,10 +28,10 @@ class Data {
 export default Data;
 
 
-  // _findPostById(cities, id) {
-   //    for (let i = 0; i < cities.length; i++) {
-   //       if (cities[i].id == id) {
-   //          return i;
-   //       }
-   //    }
-   // }
+// _findPostById(cities, id) {
+//    for (let i = 0; i < cities.length; i++) {
+//       if (cities[i].id == id) {
+//          return i;
+//       }
+//    }
+// }
