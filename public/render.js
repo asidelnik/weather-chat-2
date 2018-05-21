@@ -1,15 +1,16 @@
 class Render {
-   constructor() {
+   constructor(dataRep) {
       this.$cities = $(".cities");
       this.$citiesTemplate = $('#cities-template').html();
+      this.dataRep = dataRep;
       // this.$commentTemplate = $('#comment-template').html();
   }
 
-  renderCities(tempReports) {
+  renderCities() {
       this.$cities.empty();
       let template = Handlebars.compile(this.$citiesTemplate);
-      for (let i = 0; i < tempReports.length; i++) {
-        let newHTML = template(tempReports[i]);
+      for (let i = 0; i < this.dataRep.tempReports.length; i++) {
+        let newHTML = template(this.dataRep.tempReports[i]);
         this.$cities.append(newHTML);
         //this.renderComments(tempReports, i);
       }

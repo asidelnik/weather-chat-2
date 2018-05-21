@@ -10,10 +10,10 @@ import City from './city.js';
 let weatherAPI = new WeatherAPI();
 let cityReport = new City();
 let dataRep = new Data();
-let render = new Render();
-let events = new Events(weatherAPI);
+let render = new Render(dataRep);
+let events = new Events(dataRep, render, weatherAPI);
 
 
-events.onLoadRender(dataRep, render);
-events.fetchCity(dataRep, render);
+events.onLoadRender();
+events.fetchCity();
 events.showComments();
