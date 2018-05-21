@@ -11,11 +11,8 @@ let weatherAPI = new WeatherAPI();
 let cityReport = new City();
 let dataRep = new Data();
 let render = new Render();
-let events = new Events(dataRep);
+let events = new Events(weatherAPI);
 
 
-//events.log();
-// console.log(events);
 
-
-events.fetchCity(weatherAPI);
+events.fetchCity(dataRep, render);

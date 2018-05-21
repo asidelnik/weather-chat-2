@@ -2,23 +2,21 @@
 //let dataRep = new Data(cityReport);
 
 class Events {
-   constructor(dataRep) {
-      this.dataRep = dataRep;
+   constructor(weatherAPI) {
+      //this.dataRep = dataRep;
+      // this.render = render;
+      this.weatherAPI = weatherAPI;  
    }
 
    // Evnent listener - gets city temp on search
-   fetchCity(weatherAPI) {
-      console.log(this.dataRep);
-      $('#getTemp').on('click', function () {
-         console.log(this.dataRep);
+   fetchCity(dataRep, render) {      
+      $('#getTemp').on('click', () => {
          let cityName = $('#city').val();
          // Executes api's getTemp method
-         weatherAPI.getTemp(cityName)
+         this.weatherAPI.getTemp(cityName)
             .then(function (data) { // When promise is returned, then these commands are preformed
-               let cityTemp = data.query.results.channel.item.condition.temp;
-               let tempDescription = data.query.results.channel.item.condition.text;
-               this.dataRep.addCity(cityName, cityTemp, tempDescription);
-               $('#city').empty();
+               dataRep.addCity(cityName, data);
+               render.renderCity(dataRep.tempReports);
             })
             .catch(function (error) { //If the ajax promise returns an error, the catch will notify it
                console.log(error.data)
@@ -28,24 +26,18 @@ class Events {
 }
 
 
+
 export default Events;
 
 /*
-   Maybe use something like this, in the main file. Brought it from the gym hackathon project
-
-         var getTrainees = gymRepo.getTrainees();
-         getTrainees.then(function(data) {
-         traineesRenderer.renderTrainees(data)
-         });
-
-   
-
-   Or this from David Chuwer spacebook
-         var getPosts = postsRepository.getPosts();
-         getPosts.then( () => {
-         postsRenderer.renderPosts(postsRepository.posts)});
-
-    
+   $("#city").on('keyup', function(event) {
+         if (event.keyCode == 13) {
+             $("#getTemp").trigger('click');
+         } else {
+             event.preventDefault();
+             return false;
+         }
+     });
 */
 
 
@@ -72,3 +64,9 @@ log() {
    console.log(this.dataRep);
 }
 */
+
+ // .then(function (cityName, cityTemp, tempDescription) {
+            //    this.dataRep.addCity(cityName, cityTemp, tempDescription);
+               
+            //    //$('#city').empty();
+            // })

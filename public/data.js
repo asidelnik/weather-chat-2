@@ -2,14 +2,17 @@ import City from './city.js';
 
 class Data {
    constructor(cityReport) {
-      this.tempReports = [1,2];
+      this.tempReports = [];
       // this.cityReport = cityReport;
    }
 
-   addCity(city, cityTemp, tempDescription) {
-      let cityData = new City(city, cityTemp, tempDescription);
+   addCity(cityName, data) {
+      let cityTemp = data.query.results.channel.item.condition.temp;
+      let tempDescription = data.query.results.channel.item.condition.text;
+      let cityData = new City(cityName, cityTemp, tempDescription);
+
       this.tempReports.push(cityData);
-      // $('#temp').html("Temperature in " + city + " is " + temp + "°C");
+      console.log(this.tempReports); 
    }
 }
 
@@ -21,8 +24,9 @@ export default Data;
 
 
 
-
 // let cityTemp = {
    //    city: city,
    //    temp: temp
    // };
+
+         // $('#temp').html("Temperature in " + city + " is " + temp + "°C");
