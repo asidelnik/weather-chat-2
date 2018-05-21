@@ -14,5 +14,6 @@ let render = new Render();
 let events = new Events(weatherAPI);
 
 
-
+events.onLoadRender(dataRep, render);
 events.fetchCity(dataRep, render);
+events.showComments();

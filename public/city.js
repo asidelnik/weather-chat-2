@@ -4,6 +4,7 @@ class City {
       this.cityTemp = cityTemp;
       this.tempDescription = tempDescription;
       this.comments = [];
+      this.id = Date.now();
    }
 }
 

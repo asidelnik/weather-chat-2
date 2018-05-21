@@ -9,6 +9,14 @@ body {
    margin-bottom: 20px;
 }
 
+/* .comments-container {
+   
+} */
+
+
 .comments-container {
    display: none;
+}
+.show {
+   display: block;
 }
