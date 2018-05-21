@@ -1,0 +1,14 @@
+body {
+   padding: 40px;
+}
+.cities {
+   margin-top: 15px;
+}
+.city {
+   border:1px solid black;
+   margin-bottom: 20px;
+}
+
+.comments-container {
+   display: none;
+}

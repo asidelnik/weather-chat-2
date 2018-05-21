@@ -1,17 +1,22 @@
-class Events {
-   constructor() {
+// import Data from './data.js';
+//let dataRep = new Data(cityReport);
 
+class Events {
+   constructor(weatherAPI) {
+      //this.dataRep = dataRep;
+      // this.render = render;
+      this.weatherAPI = weatherAPI;  
    }
 
    // Evnent listener - gets city temp on search
-   fetchCity(weatherAPI) {
-      $('#getTemp').on('click', function () {
-         let city = $('#city').val();
+   fetchCity(dataRep, render) {      
+      $('#getTemp').on('click', () => {
+         let cityName = $('#city').val();
          // Executes api's getTemp method
-         weatherAPI.getTemp(city)
-            .then(function (data) {   // When promise is returned, then these commands are preformed
-               let temp = data.query.results.channel.item.condition.temp;
-               $('#temp').html("Temperature in " + city + " is " + temp + "°C");
+         this.weatherAPI.getTemp(cityName)
+            .then(function (data) { // When promise is returned, then these commands are preformed
+               dataRep.addCity(cityName, data);
+               render.renderCity(dataRep.tempReports);
             })
             .catch(function (error) { //If the ajax promise returns an error, the catch will notify it
                console.log(error.data)
@@ -21,7 +26,20 @@ class Events {
 }
 
 
+
 export default Events;
+
+/*
+   $("#city").on('keyup', function(event) {
+         if (event.keyCode == 13) {
+             $("#getTemp").trigger('click');
+         } else {
+             event.preventDefault();
+             return false;
+         }
+     });
+*/
+
 
 /* 
    1. Events module listen to city input value
@@ -36,3 +54,19 @@ export default Events;
    
 
 */
+
+
+/* 
+log() {
+   // let x = this.dataRep;
+   // console.log("this.dataRep at log method" + x);
+   // console.log(x);
+   console.log(this.dataRep);
+}
+*/
+
+ // .then(function (cityName, cityTemp, tempDescription) {
+            //    this.dataRep.addCity(cityName, cityTemp, tempDescription);
+               
+            //    //$('#city').empty();
+            // })
