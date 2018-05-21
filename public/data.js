@@ -10,23 +10,28 @@ class Data {
       let cityTemp = data.query.results.channel.item.condition.temp;
       let tempDescription = data.query.results.channel.item.condition.text;
       let cityData = new City(cityName, cityTemp, tempDescription);
-
       this.tempReports.push(cityData);
-      console.log(this.tempReports); 
+   }
+
+
+
+
+   saveToLocalStorage() {
+      localStorage.setItem('weather-chat', JSON.stringify(this.tempReports));
+   }
+
+   getFromLocalStorage() {
+      return JSON.parse(localStorage.getItem('weather-chat') || '[]');
    }
 }
 
 export default Data;
 
 
-
-
-
-
-
-// let cityTemp = {
-   //    city: city,
-   //    temp: temp
-   // };
-
-         // $('#temp').html("Temperature in " + city + " is " + temp + "°C");
+// _findPostById(cities, id) {
+//    for (let i = 0; i < cities.length; i++) {
+//       if (cities[i].id == id) {
+//          return i;
+//       }
+//    }
+// }
